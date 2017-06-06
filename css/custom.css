@@ -1,0 +1,20 @@
+.fancybox-type-html .fancybox-nav {
+    width: 60px;       
+}
+
+.fancybox-type-html .fancybox-nav span {
+    visibility: visible;
+    opacity: 0.5;
+}
+
+.fancybox-type-html .fancybox-nav:hover span {
+    opacity: 1;
+}
+
+.fancybox-type-html .fancybox-next {
+    right: -60px;
+}
+
+.fancybox-type-html .fancybox-prev {
+    left: -60px;
+}

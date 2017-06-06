@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
+  <head>
+    <title>Carnet de passage</title>
+    <meta charset="utf-8">
+    <!-- <meta property="og:image" content="http://je.vagamon.de/photos/169/043.jpg" /> -->
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/ol-315.css" type="text/css" media="all">
+    <link rel="stylesheet" href="css/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/mediaelementplayer.css" />
+    <link rel="stylesheet" href="css/map.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    
+    <!-- JS -->
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/jquery.csv-0.71.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mousewheel-3.0.6.pack.js"></script>
+    <script type="text/javascript" src="js/jquery.fancybox.pack.js"></script>
+    <script type="text/javascript" src="js/jquery.fancybox-buttons.js?v=1.0.5"></script>
+    <script type="text/javascript" src="js/jquery.fancybox-media.js?v=1.0.6"></script>
+    <script type="text/javascript" src="js/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+    <script type="text/javascript" src="js/bezier.js"></script>
+    <script type="text/javascript" src="js/ol-315.js"></script>
+    <script type="text/javascript" src="js/mediaelement-and-player.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/tracker.js"></script>
+    <noscript><p><img src="//carnet.depassage.eu/piwik/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
+
+  </head>
+  <body>
+  <!--MOUSE POSITION TO GET COORdinates offline-->
+<!--	<div id="mouse-position"></div>
+    <form>
+      <label>Projection </label>
+      <select id="projection">
+        <option value="EPSG:4326">EPSG:4326</option>
+        <option value="EPSG:3857">EPSG:3857</option>
+      </select>
+      <label>Precision </label>
+      <input id="precision" type="number" min="0" max="12" value="4"/>
+    </form>
+-->
+    <!-- Map -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">Si vous completez ce formulaire, vous serez notifié par mail lorsque des modifications sont apportées au site</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="email" class="control-label">Ton email:</label>
+            <input type="text" class="form-control" id="email" maxlength="100">
+          </div>
+          <div class="form-group">
+            <label for="prenom" class="control-label">Tom prénom:</label>
+            <input type="text" class="form-control" id="prenom" maxlength="50">
+          </div>
+          <div class="form-group">
+            <label for="nom" class="control-label">Ton nom:</label>
+            <input type="text" class="form-control" id="nom" maxlength="50">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+        <button type="button" class="btn btn-primary">Suivre</button>
+      </div>
+    </div>
+  </div>
+</div>
+    
+ <div id="map" class="map">
+	<!--<script type="text/javascript" src="vue/draw-position.js"></script>-->
+	<script type="text/javascript" src="vue/custom-trip.js"></script>
+	<script type="text/javascript" src="vue/draw-places.js"></script>
+    <script type="text/javascript" src="vue/draw-map.js"></script>
+    <script type="text/javascript" src="vue/draw-gallery.js"></script>
+    <script type="text/javascript" src="vue/edit-map.js"></script>
+    <script type="text/javascript" src="vue/followMe.js"></script>
+  </body>
+</html>

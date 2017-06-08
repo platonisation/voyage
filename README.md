@@ -1,2 +1,7 @@
-# voyage git init git add README.md git commit -m first commit git remote add origin https://github.com/platonisation/voyage.git git push -u origin master
 # voyage
+
+TODO
+carte différente par voyage (menu ?)
+possibilité de fonds différents
+un générateur de point en fonction du trajet établis
+affichage d'un trajet prévisionnel

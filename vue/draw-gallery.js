@@ -1,12 +1,13 @@
  function getPhotos(id_photo) {
-  $.get("photos/"+id_photo+"/filelist.csv", function (data) {parsePhotoList(id_photo,data)});
+  $.get("pics/"+id_photo+"/filelist.csv", function (data) {parsePhotoList(id_photo,data)});
   //var tt = "01.jpg\ttoto le rigolo";
 	//parsePhotoList(1,tt);
 }
 
 
 function parsePhotoList(id_photo,data_csv) {
-  var data_array = $.csv.toArrays(data_csv,{"separator" : "§"});
+  alert(data_csv);
+	var data_array = $.csv.toArrays(data_csv,{"separator" : "§"});
   if (data_array.length > 0) {
 	openGallery(id_photo,data_array);
   }

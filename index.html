@@ -3,6 +3,7 @@
   <head>
     <title>Carnet de passage</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- <meta property="og:image" content="http://je.vagamon.de/photos/169/043.jpg" /> -->
     <!-- CSS -->
     <link rel="stylesheet" href="css/ol-315.css" type="text/css" media="all">
@@ -11,11 +12,14 @@
     <link rel="stylesheet" href="css/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
     <link rel="stylesheet" href="css/mediaelementplayer.css" />
     <link rel="stylesheet" href="css/map.css" />
+    <link rel="stylesheet" href="css/popup.css" />
+    <link rel="stylesheet" href="css/menu.css" />
     <link rel="stylesheet" href="css/custom.css" />
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
     
     <!-- JS -->
+    
     <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="js/jquery.csv-0.71.min.js"></script>
     <script type="text/javascript" src="js/jquery.mousewheel-3.0.6.pack.js"></script>
@@ -32,19 +36,7 @@
 
   </head>
   <body>
-  <!--MOUSE POSITION TO GET COORdinates offline-->
-  <div id="mouse-position"></div>
-    <form>
-      <label>Projection </label>
-      <select id="projection">
-        <option value="EPSG:4326">EPSG:4326</option>
-        <option value="EPSG:3857">EPSG:3857</option>
-      </select>
-      <label>Precision </label>
-      <input id="precision" type="number" min="0" max="12" value="4"/>
-    </form>
-
-    <!-- Map -->
+ <!-- THIS IS SHIT Formulaire de suivi, et autres modales -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -75,14 +67,52 @@
     </div>
   </div>
 </div>
-    
- <div id="map" class="map">
-	<!--<script type="text/javascript" src="vue/draw-position.js"></script>-->
-	<script type="text/javascript" src="vue/custom-trip.js"></script>
-	<script type="text/javascript" src="vue/draw-places.js"></script>
+
+<!-- POPUP that print the new city coordinate SOLO TESTING -->
+<div id="popup" class="ol-popup">
+                <a href="#" id="popup-closer" class="ol-popup-closer"> </a>
+                <div id="popup-content"></div>
+</div>
+
+<!--NAV MENU + main PANEL used for sliding menu (slideout.js)-->
+<nav id="menu"> 
+	<h3>Filtre de la carte</h3>
+	<select class="testons" id="layerSelect" onchange="changeLayer()">
+		<option value="stamenLayer">Peinture</option>
+		<option value="osmbis" selected>Maps</option>
+		<option value="osm" >Dessin</option>
+	</select>
+	<select class="testons" id="tripSelect" onchange="drawTrip()">
+		<!--<option value="trip1">Canada</option>
+		<option value="trip2">Irlande</option>
+		<option value="trip3">Europe de l'est</option>
+		<option value="trip4">Portugal</option>-->
+		<option value="2017-ads" selected>2017 - Amérique du sud</option>
+		<!-- <option value="2018-asie">2018 - Asie</option> -->
+	</select>
+	<h3>Autres informations</h3>
+	<a href="https://92.222.80.248/photos" class="testons">Voir toutes les photos</a>
+</nav> 
+<main id="panel"> 
+	<header> 
+		<button class="toggle-button">☰</button> 
+		<h2>Carnet de passage</h2>
+	</header>
+	<div id="map" class="map"> 
+</main>
+
+<script src="node_modules/slideout/dist/slideout.min.js"></script> <script> var slideout = new Slideout({ 'panel': document.getElementById('panel'), 'menu':
+document.getElementById('menu'), 'padding': 256, 'tolerance': 70, 'touch':false, 'side':'left' });
+ document.querySelector('.toggle-button').addEventListener('click', function() { slideout.toggle(); }); </script>
+
+ <!-- THE MAP -->
+    <!-- <script type="text/javascript" src="vue/draw-position.js"></script> -->
+    <script type="text/javascript" src="vue/custom-trip.js"></script>
+    <script type="text/javascript" src="vue/draw-places.js"></script>
     <script type="text/javascript" src="vue/draw-map.js"></script>
     <script type="text/javascript" src="vue/draw-gallery.js"></script>
     <script type="text/javascript" src="vue/edit-map.js"></script>
     <script type="text/javascript" src="vue/followMe.js"></script>
+  <!--  <script type="text/javascript" src="vue/draw-popup.js"></script>-->
   </body>
 </html>

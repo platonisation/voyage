@@ -3,10 +3,43 @@ var edit_mode = false;
 var point_max = 169;
 //var point_max = 9999;
 
-function loadPoints(callback){
- $.get("../points.csv", function (data) {add_data_to_map(data,edit_mode)});
-  callback();
+function initPoints(){
+ //$.get("../points.csv", function (data) {add_data_to_map(data,edit_mode); changeLayer();}); 
+ //INIT EMPTY LAYER POINTS for map.getLayers().getArray()[1] to exist
+ map.addLayer(tripVectorLayer);
+ drawTrip();
 }
+
+/*********Draw Trip on select trip change*******/
+function drawTrip(){
+var tripSelector;
+tripSelector = document.getElementById('tripSelect');
+//remove source to clean MAP
+tripVectorSource = new ol.source.Vector({}); 
+//TEST IF WRONG TRIP LOADEDDOES NOT WORK
+var aa = $.get("voyages/"+tripSelector.value+".csv");
+if(undefined !== aa){
+	$.get("voyages/"+tripSelector.value+".csv", function (data) {add_data_to_map(data,edit_mode); 
+	map.getLayers().getArray()[1].setSource(tripVectorSource);
+	changeLayer();});
+	/* EXCEPTION
+	if all
+	tripVectorSource = new ol.source.Vector({});
+	for each file in voyages repository{
+	$.get("voyages/"+tt.value+".csv", function (data) {add_data_to_map(data,edit_mode)});
+	}
+	*/
+	//UPDATE SOURCE OF POINTS
+	//map.getLayers().getArray()[1].setSource(tripVectorSource);  
+//	changeLayer();
+//UPDATE VIEW -- HOW TO ADAPT AUTOMATICALLY TO THE MAP
+//map.setView(new ol.View({ center: ol.proj.transform([55.72711,37.35352], 'EPSG:4326', 'EPSG:3857'), zoom: 5 }));
+
+}
+else{
+	alert('Pas de donnees sur ce voyage');
+}
+} 
 
 
 function compute_bezier(point1,param1,param2,point2) {

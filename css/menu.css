@@ -1,0 +1,58 @@
+/*NAVIGATION MENU*/
+.slideout-menu { position: fixed; top: 0; bottom: 0; width: 256px; min-height: 100vh; overflow-y: scroll; -webkit-overflow-scrolling: touch; z-index: 0; display: none; } 
+.slideout-menu-left { left: 0; } 
+.slideout-menu-right { right: 0; } 
+.slideout-panel { position: relative; z-index: 1; will-change: transform; background-color: #FFF; /* A background-color is required */ min-height: 100vh; } 
+.slideout-open, .slideout-open body, .slideout-open .slideout-panel { overflow: hidden; } 
+.slideout-open .slideout-menu { display: block; }
+
+.toggle-button {
+height: 50px;
+width: 50px;
+background-color: #1d1d1d;
+color: white;
+outline: none;
+}
+
+.toggle-button:hover { background-color: grey; /* Green */ color: white; }
+
+header h2 {
+position: relative;
+text-align: center;
+width:80%;
+font-size: 16px;
+font: inherit;
+font-weight: 700;
+margin-top: -35px;
+margin-left: 10%;
+margin-right: 10%;
+}
+
+button {
+border: 0px;
+text-decoration: none;
+}
+
+header {
+width:100%;
+height:50px;;
+background-color: #1d1d1d;
+color: white;
+}
+
+#panel {
+/*background-color: #1d1d1d; FUN BECAUSE MAP BECOME DARKER*/
+}
+
+#menu {
+background-color: #1d1d1d;
+color: white;
+}
+
+.testons {
+width: 100%;
+height: 5%;
+background-color: white;
+color: #1d1d1d;
+margin-top: 3px;
+}

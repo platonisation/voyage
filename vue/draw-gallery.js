@@ -6,8 +6,7 @@
 
 
 function parsePhotoList(id_photo,data_csv) {
-  alert(data_csv);
-	var data_array = $.csv.toArrays(data_csv,{"separator" : "§"});
+ var data_array = $.csv.toArrays(data_csv,{"separator" : "§"});
   if (data_array.length > 0) {
 	openGallery(id_photo,data_array);
   }
@@ -30,7 +29,7 @@ function openGallery(id_photo,photos_array) {
 	}
 	else {
 	  var newimage = {
-		href : 'photos/'+id_photo+'/'+photos_array[photo][0],
+		href : 'pics/'+id_photo+'/'+photos_array[photo][0],
 		title : photos_array[photo][1]+' (<a href="photos/'+id_photo+'/'+photos_array[photo][0]+'" download>Télécharger</a>)',
 	  }
 	}

@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">                                                                          
   <head>
     <title>Carnet de passage</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <!-- <meta property="og:image" content="http://je.vagamon.de/photos/169/043.jpg" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
+    <!-- <meta property="og:image" content="http://je.vagamon.de/photos/169/043.jpg" /> -->                                                          
     <!-- CSS -->
     <link rel="stylesheet" href="css/ol-315.css" type="text/css" media="all">
     <link rel="stylesheet" href="css/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
@@ -15,10 +15,8 @@
     <link rel="stylesheet" href="css/menu.css" />
     <link rel="stylesheet" href="css/custom.css" />
     <link rel="stylesheet" href="css/bootstrap.min.css">
-
-    
+                                                                                                                                                     
     <!-- JS -->
-    
     <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="js/jquery.csv-0.71.min.js"></script>
     <script type="text/javascript" src="js/jquery.mousewheel-3.0.6.pack.js"></script>
@@ -32,16 +30,17 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/tracker.js"></script>
     <noscript><p><img src="//carnet.depassage.eu/piwik/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
-
+                                                                                                                                                     
   </head>
   <body>
- <!-- THIS IS SHIT Formulaire de suivi, et autres modales -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+ <!-- THIS IS SHIT Formulaire de suivi, et autres modales --> <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" 
+aria-labelledby="exampleModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="exampleModalLabel">Si vous completez ce formulaire, vous serez notifié par mail lorsque des modifications sont apportées au site</h4>
+        <h4 class="modal-title" id="exampleModalLabel">Si vous completez ce formulaire, vous serez notifié par mail lorsque des modifications 
+sont ap portées au site</h4>
       </div>
       <div class="modal-body">
         <form>
@@ -64,46 +63,36 @@
         <button type="button" class="btn btn-primary">Suivre</button>
       </div>
     </div>
-  </div>
-</div>
-
-<!-- POPUP that print the new city coordinate SOLO TESTING -->
-<div id="popup" class="ol-popup">
+  </div> </div>
+                                                                                                                                                     
+<!-- POPUP that print the new city coordinate SOLO TESTING --> <div id="popup" class="ol-popup">
                 <a href="#" id="popup-closer" class="ol-popup-closer"> </a>
-                <div id="popup-content"></div>
-</div>
-
-<!--NAV MENU + main PANEL used for sliding menu (slideout.js)-->
-<nav id="menu"> 
-	<h3>Filtre de la carte</h3>
-	<select class="testons" id="layerSelect" onchange="changeLayer()">
-		<option value="stamenLayer">Peinture</option>
-		<option value="osmbis" selected>Maps</option>
-		<option value="osm" >Dessin</option>
-	</select>
-	<select class="testons" id="tripSelect" onchange="drawTrip()">
-		<option value="2012-canada">2012 - Canada</option>
-		<!--<option value="trip2">Irlande</option>
-		<option value="trip3">Europe de l'est</option>
-		<option value="trip4">Portugal</option>-->
-		<option value="2017-ads" selected>2017 - Amérique du sud</option>
-		<!-- <option value="2018-asie">2018 - Asie</option> -->
-	</select>
-	<h3>Autres informations</h3>
-	<a href="https://92.222.80.248/photos" class="testons">Voir toutes les photos</a>
-</nav> 
-<main id="panel"> 
-	<header> 
-		<button class="toggle-button">☰</button> 
-		<h2>Carnet de passage</h2>
-	</header>
-	<div id="map" class="map"> 
-</main>
-
-<script src="node_modules/slideout/dist/slideout.min.js"></script> <script> var slideout = new Slideout({ 'panel': document.getElementById('panel'), 'menu':
-document.getElementById('menu'), 'padding': 256, 'tolerance': 70, 'touch':false, 'side':'left' });
+                <div id="popup-content"></div> </div>
+                                                                                                                                                     
+<!--NAV MENU + main PANEL used for sliding menu (slideout.js)--> <nav id="menu">
+        <h3>Filtre de la carte</h3>
+        <select class="testons" id="layerSelect" onchange="changeLayer()">
+                <option value="stamenLayer">Peinture</option>
+                <option value="osmbis" selected>Maps</option>
+                <option value="osm" >Dessin</option>
+        </select>
+        <select class="testons" id="tripSelect" onchange="drawTrip()">
+                <option value="2012-canada">2012 - Canada</option>
+                <option value="2017-ads" selected>2017 - Amérique du sud</option>
+        </select>
+        <h3>Autres informations</h3> 
+        <a href="https://92.222.80.248/photos" class="testons">Voir toutes les photos</a>
+</nav> <main id="panel">
+        <header>
+                <button class="toggle-button">☰</button>
+                <h2>Carnet de passage</h2>
+        </header>
+        <div id="map" class="map"> </main>
+                                                                                                                                                     
+<script src="node_modules/slideout/dist/slideout.min.js"></script> <script> var slideout = new Slideout({ 'panel': 
+document.getElementById('panel'), 'menu': document.getElementById('menu'), 'padding': 256, 'tolerance': 70, 'touch':false, 'side':'left' });
  document.querySelector('.toggle-button').addEventListener('click', function() { slideout.toggle(); }); </script>
-
+                                                                                                                                                     
  <!-- THE MAP -->
     <!-- <script type="text/javascript" src="vue/draw-position.js"></script> -->
     <script type="text/javascript" src="vue/custom-trip.js"></script>
@@ -113,4 +102,4 @@ document.getElementById('menu'), 'padding': 256, 'tolerance': 70, 'touch':false,
     <script type="text/javascript" src="vue/edit-map.js"></script>
     <script type="text/javascript" src="vue/followMe.js"></script>
   </body>
-</html>
+</html>  

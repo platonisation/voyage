@@ -2,10 +2,6 @@
  * Draw map etheir online with Tiles or Offline with saved images
  */
 
-/*var satellite = new ol.layer.Tile({
-source: new ol.source.MapQuest({layer: 'sat'})
-});*/
-
 var osm = new ol.layer.Tile({
 source: new ol.source.TileJSON({
         url: 'https://api.tiles.mapbox.com/v3/mapbox.geography-class.json?secure=1',
@@ -14,32 +10,30 @@ source: new ol.source.TileJSON({
 opacity: 0.5
 });
 
-
-/*var hyb = new ol.layer.Group({
-    layers: [
-      new ol.layer.Tile({
-        source: new ol.source.MapQuest({layer: 'sat'})
-      }),
-      new ol.layer.Tile({
-        source: new ol.source.MapQuest({layer: 'hyb'})
-      })
-    ]
-});*/
-
 var osmbis = new ol.layer.Tile({
 source: new ol.source.OSM(),
 opacity: 0.66
 });
 
-
-var stamenLayer = new ol.layer.Tile({
+var stamenWater = new ol.layer.Tile({
 	source: new ol.source.Stamen({
 	  layer: 'watercolor' //toner, terrain, burning, mars,watercolor
 	})
 });
 
+var stamenToner = new ol.layer.Tile({
+	source: new ol.source.Stamen({
+		layer: 'toner' //toner, terrain, burning, mars,watercolor
+	})
+});
 
-var mapList = {'osmbis':osmbis, 'stamenLayer':stamenLayer, 'osm':osm};
+var stamenTerrain = new ol.layer.Tile({
+        source: new ol.source.Stamen({
+                layer: 'terrain' //toner, terrain, burning, mars,watercolor 
+        })
+}); 
+
+var mapList = {'osmbis':osmbis, 'stamenWater':stamenWater, 'osm':osm, 'stamenTerrain':stamenTerrain, 'stamenToner':stamenToner};
 
 /******* END OF MAPS DEFINITION ********/
 

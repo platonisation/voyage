@@ -70,19 +70,22 @@ sont ap portées au site</h4>
                 <div id="popup-content"></div> </div>
                                                                                                                                                      
 <!--NAV MENU + main PANEL used for sliding menu (slideout.js)--> <nav id="menu">
-        <h3>Filtre de la carte</h3>
+        <h3>Filtres de la carte</h3>
         <select class="testons" id="layerSelect" onchange="changeLayer()">
-                <option value="stamenLayer">Peinture</option>
-                <option value="osmbis" selected>Maps</option>
+                <option value="stamenWater">Peinture</option>
+                <option value="osmbis">Maps</option>
                 <option value="osm" >Dessin</option>
+		<option value="stamenTerrain" selected>Terrain</option>
+		<option value="stamenToner">Black & White</option>
         </select>
         <select class="testons" id="tripSelect" onchange="drawTrip()">
                 <option value="2012-canada">2012 - Canada</option>
                 <option value="2017-ads" selected>2017 - Amérique du sud</option>
+		<option value="tout">Tout les voyages</option>				
         </select>
         <h3>Autres informations</h3> 
-        <a href="https://92.222.80.248/photos" class="testons">Voir toutes les photos</a>
-</nav> <main id="panel">
+        <a href="https://92.222.80.248/photos" class="testons">Voir toutes les photos</a>
+	</nav> <main id="panel">
         <header>
                 <button class="toggle-button">☰</button>
                 <h2>Carnet de passage</h2>

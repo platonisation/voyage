@@ -16,12 +16,21 @@ var tripSelector;
 tripSelector = document.getElementById('tripSelect');
 //remove source to clean MAP
 tripVectorSource = new ol.source.Vector({}); 
-//TEST IF WRONG TRIP LOADEDDOES NOT WORK
-var aa = $.get("voyages/"+tripSelector.value+".csv");
-if(undefined !== aa){
-	$.get("voyages/"+tripSelector.value+".csv", function (data) {add_data_to_map(data,edit_mode); 
+
+if(tripSelector.value !== 'tout'){
+	var myTripData = $.get("voyages/"+tripSelector.value+".csv");
+
+myTripData.success(function (data) {
+	add_data_to_map(data,edit_mode); 
 	map.getLayers().getArray()[1].setSource(tripVectorSource);
-	changeLayer();});
+	changeLayer();
+	});
+	
+myTripData.error(function(jqXHR, textStatus, errorThrown) { 
+	if (textStatus == 'timeout') alert('server is not responding'); 
+	if (textStatus == 'error') alert('Données sur ce voyage non trouvée'); 
+	});
+
 	/* EXCEPTION
 	if all
 	tripVectorSource = new ol.source.Vector({});
@@ -31,13 +40,24 @@ if(undefined !== aa){
 	*/
 	//UPDATE SOURCE OF POINTS
 	//map.getLayers().getArray()[1].setSource(tripVectorSource);  
-//	changeLayer();
+//	//changeLayer();
 //UPDATE VIEW -- HOW TO ADAPT AUTOMATICALLY TO THE MAP
 //map.setView(new ol.View({ center: ol.proj.transform([55.72711,37.35352], 'EPSG:4326', 'EPSG:3857'), zoom: 5 }));
 
 }
 else{
-	alert('Pas de donnees sur ce voyage');
+var trips=[];
+	for(var i=0; i<tripSelector.length; i++){
+	//alert(tripSelector.options[i].value);
+	//trips.push(tripSelector.options[i].value);
+	var myTripData = $.get("voyages/"+tripSelector.options[i].value+".csv");
+	myTripData.success(function(data){
+	add_data_to_map(data);
+	// A BIT OVERKILL BECAUSE SET NBOFLAYER TIMES THE MAP AND RESET IT
+	map.getLayers().getArray()[1].setSource(tripVectorSource);
+	changeLayer();
+});
+	}
 }
 } 
 

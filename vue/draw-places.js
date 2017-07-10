@@ -4,8 +4,6 @@ var point_max = 169;
 //var point_max = 9999;
 
 function initPoints(){
- //$.get("../points.csv", function (data) {add_data_to_map(data,edit_mode); changeLayer();}); 
- //INIT EMPTY LAYER POINTS for map.getLayers().getArray()[1] to exist
  map.addLayer(tripVectorLayer);
  drawTrip();
 }
@@ -15,8 +13,7 @@ function drawTrip(){
 var tripSelector;
 tripSelector = document.getElementById('tripSelect');
 //remove source to clean MAP
-tripVectorSource = new ol.source.Vector({}); 
-
+tripVectorSource = new ol.source.Vector({});
 if(tripSelector.value !== 'tout'){
 	var myTripData = $.get("voyages/"+tripSelector.value+".csv");
 
@@ -30,20 +27,6 @@ myTripData.error(function(jqXHR, textStatus, errorThrown) {
 	if (textStatus == 'timeout') alert('server is not responding'); 
 	if (textStatus == 'error') alert('Données sur ce voyage non trouvée'); 
 	});
-
-	/* EXCEPTION
-	if all
-	tripVectorSource = new ol.source.Vector({});
-	for each file in voyages repository{
-	$.get("voyages/"+tt.value+".csv", function (data) {add_data_to_map(data,edit_mode)});
-	}
-	*/
-	//UPDATE SOURCE OF POINTS
-	//map.getLayers().getArray()[1].setSource(tripVectorSource);  
-//	//changeLayer();
-//UPDATE VIEW -- HOW TO ADAPT AUTOMATICALLY TO THE MAP
-//map.setView(new ol.View({ center: ol.proj.transform([55.72711,37.35352], 'EPSG:4326', 'EPSG:3857'), zoom: 5 }));
-
 }
 else{
 var trips=[];

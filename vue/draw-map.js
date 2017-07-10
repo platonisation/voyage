@@ -85,6 +85,10 @@ if(undefined !== mapList[tt.value]){
 	map.addLayer(mapList[tt.value]);
 	map.addLayer(tripVectorLayer);
 	map.updateSize();
+
+	//ADAPT SIZE AUTOMATICALLY
+	var extent = map.getLayers().getArray()[1].getSource().getExtent(); 
+	map.getView().fit(extent, map.getSize());
 }
 else{
 	alert('Cette carte n\'est pas disponible');
